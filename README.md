@@ -25,6 +25,7 @@ for (iter = lst.begin(); iter != itened; iter++)
 ### Iterators
 > "Pointeurs pour les containers"
 ### Algorithmes
+> Fonctionnent sur les containers
 ```C++
 #include <algorithm>
 
