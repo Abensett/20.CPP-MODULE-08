@@ -11,6 +11,17 @@
 > * list
 > * map
 > * vector ->  equivalent tableau
+> ```C++
+list<int>			lst;
+list<int>::const_iterator	iter;
+list<int>::const_iterator	itend = lst.end();
+
+for (iter = lst.begin(); iter != itened; iter++)
+{
+	cout << *it << endl; 				// Deferencement possible	
+}
+
+```
 ### Iterators
 > "Pointeurs pour les containers"
 ### Algorithmes
