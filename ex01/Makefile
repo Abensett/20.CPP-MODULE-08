@@ -15,7 +15,7 @@ CLEAR		= \033[2K\r
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= executable
+NAME			= span
 
 DIRSRC			= src/
 
@@ -38,7 +38,7 @@ LDFLAGS			=
 #                                SOURCE FILES                                  #
 # **************************************************************************** #
 
-SRC 			= main.cpp
+SRC 			= main.cpp 
 
 OBJ 			:= $(SRC:.cpp=.o)
 
@@ -58,12 +58,12 @@ leaks:			all
 
 
 
-$(DIROBJ)%.o:${DIRSRC}%.cpp
+$(DIROBJ)%.o:%.cpp
 				@mkdir -p $(DIROBJ)
 				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME):		$(DIROBJS)
-				@printf "  $(YELLOW)Compiling and linking all the files $(END)⌛\n"
+				@printf "  $(YELLOW)Compiling and linking all the files $(RESET)⌛\n"
 				@$(CC) $(INCLUDES)  $(CFLAGS) $(DIROBJS)  $(LDFLAGS) -o $@
 				@printf "[$(GREEN)OK$(WHITE)] $(NAME) generated. \n"
 
