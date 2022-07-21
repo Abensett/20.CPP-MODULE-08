@@ -11,7 +11,7 @@
 > * list
 > * map
 > * vector ->  equivalent tableau
-> ```C++
+```C++
 list<int>			lst;
 list<int>::const_iterator	iter;
 list<int>::const_iterator	itend = lst.end();
@@ -26,10 +26,7 @@ for (iter = lst.begin(); iter != itened; iter++)
 > "Pointeurs pour les containers"
 ### Algorithmes
 ```C++
-template<typename T> class randomClasse
-{
-	randomClasse<T>(void);
-	~randomClasse<T>(void);
-	...
-}
+#include <algorithm>
+
+for_each(lst.begin(),lst.end(), display) 		// (iter, itend, fcn)
 ```
