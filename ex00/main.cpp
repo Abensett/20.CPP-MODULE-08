@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/22 01:40:02 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 04:08:11 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ template<typename T> void	Tester(const std::string name)
 	std::for_each(container.begin(), container.end(), display);
 	cout << endl;
 
-	cout<<"easyfind("<< name <<","<< fill[5] << ") is "<< *(easyfind(container, fill[5])) << endl;
-
+	cout<<"easyfind("<< name <<","<< fill[5] << ") is "<< ((container.end() == easyfind(container, fill[5])) ? "not found" : "found : value = ") << *(easyfind(container,fill[5])) << endl;
+	cout<< "From " <<fill[5]<<" to end : " ;
 	std::for_each(easyfind(container, fill[5]), container.end(), display);
 	cout << endl;
 
-	cout << "easyfind("<<name<<", 150) == container.end() ? " << ((container.end() == easyfind(container, 150)) ? "true" : "false") << endl;
+	cout << "easyfind("<<name<<", 150) is " << ((container.end() == easyfind(container, 150)) ? "not found" : "found") << endl;
 	cout << endl;
 }
 

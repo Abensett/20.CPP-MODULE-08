@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/22 02:51:01 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 04:13:55 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		Span::longestSpan(void) const
 	if (_stored <= 1)
 		throw Span::NotFilledEnough();
 
-	vectIt	minIt = std::min_element(_data.begin(), _data.end());
+	vectIt	minIt = std::min_element(_data.begin(), _data.end());		// algorithms
 	vectIt	maxIt = std::max_element(_data.begin(), _data.end());
 
 	return (*maxIt - *minIt);
@@ -100,7 +100,7 @@ int		Span::shortestSpan(void) const
 	if (_stored <= 1)
 		throw Span::NotFilledEnough();
 
-	sort(copy.begin(), copy.end());												// sort the list
+	sort(copy.begin(), copy.end());												// algorithm
 	for (size_t i = 0; i + 1 < _data.size(); i++)
 		minSpan = std::min(minSpan, static_cast<int>(copy[i + 1] - copy[i]));	// compare the higher int to the difference of two consecutive elements of the ordered the list
 	return (minSpan);
