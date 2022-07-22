@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:38:15 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/21 19:38:15 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 01:32:29 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ using std::endl;
 
 template<typename T>
 class MutantStack : public std::stack<T>
-{	
+{
 	public:
 		MutantStack(void);
 		MutantStack(const MutantStack &mstack);
 		virtual ~MutantStack();
 
 		MutantStack	&operator=(const MutantStack<T> &mstack);
-		
-		// iterators 
+
+		// iterators
 		typedef	typename std::stack<T>::container_type container_type;
 		typedef typename container_type::iterator iterator;								// container_type = conteneur de base à adapter par un objet stack.
 		typedef typename container_type::const_iterator const_iterator;

@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:38:15 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/21 15:51:08 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 02:27:11 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,15 @@
 
 class Span
 {
-	
-
 	public:
-		Span(const unsigned int N);
+		Span( unsigned int N);
 		Span(const Span &span);
 		virtual ~Span();
 
 		Span	&operator=(const Span &span);
 
 		// member functions
-		void	addNumber(const int n);
+		void	addNumber(int n);
 		int		shortestSpan(void) const;
 		int		longestSpan(void) const;
 		void	printData(std::ostream &o, const unsigned int max = 10) const;
@@ -55,12 +53,12 @@ class Span
 					 return ("Span::Exception : not filled enough");
 				}
 		};
-	
+
 	private:
+		Span(void);
 		unsigned int		_N;
 		unsigned int		_stored;
 		std::vector<int>	_data;
-		Span(void);
 
 };
 

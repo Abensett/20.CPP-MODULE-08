@@ -6,7 +6,7 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/21 15:54:03 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 02:51:01 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Span::Span(void) : _N(0), _stored(0)
 	return ;
 }
 
-Span::Span(const unsigned int N) : _N(N), _stored(0)
+Span::Span( unsigned int N) : _N(N), _stored(0)
 {
 	return ;
 }
@@ -59,6 +59,16 @@ std::ostream	&operator<<(std::ostream &o, const Span &span)
 	return (o);
 };
 
+void	Span::printData(std::ostream &o, const unsigned int max) const
+{
+	o << "[ ";
+	for (unsigned int i = 0; i < max && i < _stored; i++)
+		o << _data[i] << " ";
+	if (_stored > max)
+		o << "... " << _data[_stored - 1] << " ";
+	o << "] (" << _stored << " stored out of " << _N << ")";
+}
+
 /*
 **		MEMBER FUNCTIONS
 */
@@ -85,23 +95,13 @@ int		Span::longestSpan(void) const
 int		Span::shortestSpan(void) const
 {
 	std::vector<int>	copy = _data;
-	long				minSpan = std::numeric_limits<long>::max();
+	int				minSpan = std::numeric_limits<int>::max();					// highest int
 
 	if (_stored <= 1)
-		throw Span::notEnoughNumbers();
-	
-	sort(copy.begin(), copy.end());
-	for (size_t i = 0; i + 1 < _data.size(); i++)
-		minSpan = std::min(minSpan, static_cast<long>(copy[i + 1] - copy[i]));
-	return (minSpan);
-}
+		throw Span::NotFilledEnough();
 
-void	Span::printData(std::ostream &o, const unsigned int max) const
-{
-	o << "[ ";
-	for (unsigned int i = 0; i < max && i < _stored; i++)
-		o << _data[i] << " ";
-	if (_stored > max)
-		o << "... " << _data[_stored - 1] << " ";
-	o << "] (" << _stored << "/" << _N << ")";
+	sort(copy.begin(), copy.end());												// sort the list
+	for (size_t i = 0; i + 1 < _data.size(); i++)
+		minSpan = std::min(minSpan, static_cast<int>(copy[i + 1] - copy[i]));	// compare the higher int to the difference of two consecutive elements of the ordered the list
+	return (minSpan);
 }

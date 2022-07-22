@@ -15,7 +15,7 @@ CLEAR		= \033[2K\r
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= span
+NAME			= ex01
 
 DIRSRC			= src/
 
@@ -38,7 +38,7 @@ LDFLAGS			=
 #                                SOURCE FILES                                  #
 # **************************************************************************** #
 
-SRC 			= main.cpp 
+SRC 			= main.cpp Span.cpp
 
 OBJ 			:= $(SRC:.cpp=.o)
 

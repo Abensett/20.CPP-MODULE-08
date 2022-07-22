@@ -6,13 +6,13 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/21 15:54:50 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 01:40:02 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*************************************************************************** 
+/***************************************************************************
 	A gerer containers de sequence : vector, deque, list
-	Non : map, set 
+	Non à gérer Associatifs : map, set
 ****************************************************************************/
 
 #include "easyfind.hpp"
@@ -42,12 +42,12 @@ template<typename T> void	Tester(const std::string name)
 	std::for_each(container.begin(), container.end(), display);
 	cout << endl;
 
-	cout<<"easyfind(container, " << fill[5] << ") is " << *(easyfind(container, fill[3])) << endl;
+	cout<<"easyfind("<< name <<","<< fill[5] << ") is "<< *(easyfind(container, fill[5])) << endl;
 
 	std::for_each(easyfind(container, fill[5]), container.end(), display);
 	cout << endl;
 
-	cout << "easyfind(container, 150) == container.end() ? " << ((container.end() == easyfind(container, 150)) ? "true" : "false") << endl;
+	cout << "easyfind("<<name<<", 150) == container.end() ? " << ((container.end() == easyfind(container, 150)) ? "true" : "false") << endl;
 	cout << endl;
 }
 
@@ -58,6 +58,6 @@ int	main(void)
 	Tester< std::list<int> >("list");
 	Tester< std::vector<int> >("vector");
 	Tester< std::deque<int> >("deque");
-	
+
 	return (0);
 }

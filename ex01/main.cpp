@@ -6,16 +6,12 @@
 /*   By: abensett <abensett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:25:41 by abensett          #+#    #+#             */
-/*   Updated: 2022/07/21 15:45:52 by abensett         ###   ########.fr       */
+/*   Updated: 2022/07/22 02:39:16 by abensett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*************************************************************************** 
-	A gerer containers de sequence : vector, deque, list
-	Non : map, set 
-****************************************************************************/
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 #include <list>
 #include <vector>
 #include <deque>
@@ -25,39 +21,40 @@
 using std::cout;
 using std::endl;
 
-static void	display(int nb)
+int main()
 {
-	std::cout << nb << " ";
-}
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	Span sp2 = Span(10000);
+	std::vector<int>	vect;
+	for (int i = 1; i <= 10000; i++)
+			vect.push_back(i);
+	sp2.fillRange< std::vector<int> >(vect.begin(), vect.end());
 
-template<typename T> void	Tester(const std::string name)
-{
+	cout << sp2 << endl;
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
+	try {
+	 	sp.addNumber(11);
+	 }
+	catch (std::exception &e){
+		cout << e.what()<<endl;
+	}
+	Span sp3 = Span(2);
+	// sp3.addNumber(1);
+	// sp3.addNumber(1);
+	try {
+	 	sp3.shortestSpan();
+	 }
+	catch (std::exception &e){
+		cout << e.what()<<endl;
+	}
 
-	int	fill[10];
-	for (int i = 0; i < 10; i++)
-		fill[i] = std::rand() % 100;
-
-	T	container(fill, fill + 10);
-	cout  << "  ["<< GREEN << name << END << "] ";
-	std::for_each(container.begin(), container.end(), display);
-	std::cout << std::endl;
-
-	std::cout<<"easyfind(container, " << fill[5] << ") is " << *(easyfind(container, fill[3])) << std::endl;
-
-	std::for_each(easyfind(container, fill[5]), container.end(), display);
-	std::cout << std::endl;
-
-	std::cout << "easyfind(container, 150) == container.end() ? " << ((container.end() == easyfind(container, 150)) ? "true" : "false") << std::endl;
-	std::cout << std::endl;
-}
-
-int	main(void)
-{
-	srand(time(NULL));
-
-	Tester< std::list<int> >("list");
-	Tester< std::vector<int> >("vector");
-	Tester< std::deque<int> >("deque");
-	
-	return (0);
+	return 0;
 }
