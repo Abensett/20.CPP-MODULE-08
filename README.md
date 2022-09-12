@@ -27,4 +27,4 @@ for (iter = lst.begin(); iter != itened; iter++)
 #include <algorithm>
 for_each(lst.begin(),lst.end(), display) 		// (iter, itend, fcn)
 ```
-Footer
+
