@@ -22,6 +22,7 @@ for (iter = lst.begin(); iter != itened; iter++)
 ```
 ### Iterators
 > "Pointeurs pour les containers"
+> Plus d'informations dans le projet : [Ft_containers](../21.-Ft_containers)
 ### Algorithmes
 ```C++
 #include <algorithm>
